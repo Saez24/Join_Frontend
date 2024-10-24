@@ -1,0 +1,838 @@
+.main-addtask {
+    display: flex;
+    gap: 32px;
+    padding-left: 60px;
+    padding-right: 30px;
+    justify-content: center;
+    flex-direction: column;
+}
+
+::placeholder {
+    font-family: 'Inter';
+}
+
+.addtask-content-header {
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.addtask-content {
+    top: 136px;
+    max-width: calc(100% - 232px);
+    max-height: calc(100% - 136px);
+    margin: 170px 0 0 240px;
+}
+
+.addtask-content::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+}
+
+.addtask-content::-webkit-scrollbar-track {
+    background: rgb(246, 247, 248);
+}
+
+.addtask-content::-webkit-scrollbar-thumb {
+    background-color: rgb(246, 247, 248);
+    border-radius: 19px;
+    background: #344358;
+}
+
+.addtask-content-dialog {
+    top: 136px;
+    max-width: 100%;
+    max-height: 100%;
+    margin: 70px 0 0 20px;
+}
+
+.addtaskcontainer {
+    display: flex;
+    gap: 32px;
+    width: 100%;
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 61px;
+    margin: 0px 0px 24px 0px;
+}
+
+h3 {
+    margin: 0;
+}
+
+.required:after {
+    content: "*";
+    color: red;
+}
+
+.required-2::before {
+    content: "*";
+    color: red;
+}
+
+.left-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 440px;
+}
+
+.right-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 440px;
+}
+
+.inputfields {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+input {
+    /* height: 22px; */
+    border-radius: 10px;
+    border: 1px solid #D1D1D1;
+    padding: 12px 0 12px 12px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 400;
+    font-family: 'Inter';
+}
+
+input:hover {
+    border-color: #29ABE2;
+}
+
+.datefield {
+    // background-image: url("../assets/img/event.png");
+    background-repeat: no-repeat;
+    background-position: center right 10px;
+}
+
+input[type="date"] {
+    font-family: 'Inter';
+}
+
+input[type=date]:invalid {
+    color: lightgray;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+input[type=date] {
+    padding-left: 12px;
+}
+
+input[type=text] {
+    padding-left: 12px;
+}
+
+input:focus::-webkit-datetime-edit {
+    color: initial;
+}
+
+input[type=date]::-webkit-calendar-picker-indicator {
+    background-image: none;
+}
+
+.prio {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.prio-buttons {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+.prio-buttons button {
+    border-radius: 10px;
+    height: 56px;
+    width: 100%;
+    border: 1px solid #00000017;
+    background: #FFFFFF;
+    font-weight: 400;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.prio-buttons button:hover {
+    box-shadow: 0px 4px 4px 0px #00000040;
+}
+
+.description {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+textarea {
+    border-radius: 10px;
+    border: 1px solid #D1D1D1;
+    padding: 12px 12px 12px 12px;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: 400;
+    height: 120px;
+    max-height: 120px;
+    resize: none;
+    font-family: 'Inter';
+}
+
+textarea:hover {
+    border-color: #29ABE2;
+}
+
+.dropdown_container {
+    display: block;
+    position: relative;
+    padding-right: 12px;
+}
+
+.dropdown-content:hover {
+    border-color: #29ABE2;
+}
+
+.dropdown-content {
+    box-shadow: 0px 1px 1px 0px #00000040 inset;
+    // background-image: url("../assets/img/arrow_drop.png");
+    background-repeat: no-repeat;
+    background-position: center right 6px;
+    width: 100%;
+}
+
+.dropdown-category-content:hover {
+    border-color: #29ABE2;
+}
+
+.dropdown-category-content {
+    box-shadow: 0px 1px 1px 0px #00000040 inset;
+    // background-image: url("../assets/img/arrow_drop.png");
+    background-repeat: no-repeat;
+    background-position: center right 6px;
+    width: 100%;
+}
+
+.dropdown_selection {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 2px;
+    cursor: pointer;
+    // background-image: url("../assets/img/unchecked.png");
+    background-repeat: no-repeat;
+    background-position: center right 20px;
+    height: 32px;
+    width: 95%;
+}
+
+.shortname {
+    border-radius: 30px;
+    width: 42px;
+    height: 42px;
+    border: 2px solid #FFFFFF;
+    cursor: pointer;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 0;
+    margin-right: 10px;
+}
+
+/* .dropdown_selection:hover {
+    background: #D1D1D1;
+    border-radius: 10px;
+    background-image: url("../assets/img/unchecked.png");
+    background-repeat: no-repeat;
+    background-position: center right 20px;
+    height: 24px;
+    width: 95%;
+} */
+
+/* ===== Scrollbar CSS ===== */
+
+
+body {
+    --sb-track-color: #ffffff;
+    --sb-thumb-color: #bfbfbf;
+    --sb-size: 12px;
+}
+
+body::-webkit-scrollbar {
+    width: var(--sb-size)
+}
+
+body::-webkit-scrollbar-track {
+    background: var(--sb-track-color);
+    border-radius: 5px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color);
+    border-radius: 5px;
+
+}
+
+@supports not selector(::-webkit-scrollbar) {
+    body {
+        scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+    }
+}
+
+.selected_dropdown {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 2px;
+    cursor: pointer;
+    color: #FFFFFF;
+    background: #091931;
+    border-radius: 10px;
+    // background-image: url("../assets/img/Check_button_white.png");
+    background-repeat: no-repeat;
+    background-position: center right 20px;
+    height: 32px;
+    width: 95%;
+}
+
+label {
+    padding-left: 10px;
+    cursor: pointer;
+}
+
+.checkbox {
+    appearance: none;
+    border: 0;
+}
+
+.selectedAssignTo {
+    position: absolute;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 2px solid #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.moreButton {
+    position: absolute;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: gray;
+    color: white;
+    font-weight: bold;
+    border: 2px solid #FFFFFF;
+    cursor: pointer;
+}
+
+.button-container {
+    position: relative;
+    display: none;
+    margin-bottom: 30px;
+}
+
+.dropdown_box {
+    display: none;
+    background-color: #ffffff;
+    border-radius: 10px;
+    position: absolute;
+    top: calc(100% + 0px);
+    left: 0;
+    width: 100%;
+    max-height: 185px;
+    overflow-y: auto;
+    z-index: 999;
+    overflow-x: hidden;
+}
+
+.category_dropdown_box {
+    display: none;
+    background-color: #ffffff;
+    border-radius: 10px;
+    position: absolute;
+    top: calc(100% + 0px);
+    left: 0;
+    width: 100%;
+    max-height: 185px;
+    overflow-y: auto;
+    z-index: 999;
+    overflow-x: hidden;
+}
+
+.separator {
+    border: 1px solid #D1D1D1;
+    height: 425px;
+}
+
+.subtask {
+    // background-image: url("../assets/img/plus.png");
+    background-repeat: no-repeat;
+    background-position: center right 4px;
+}
+
+.subtask-container {
+    height: 90px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.aktive-subtask {
+    display: none;
+    background: #FFFFFF;
+    // background-image: url('../assets/img/close.png'), url('../assets/img/separator.png'), url('../assets/img/check_black.png');
+    background-repeat: no-repeat;
+    background-position: center right 28px, center right 28px, center right 8px;
+}
+
+
+.subtaskblock {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.addedtask {
+    display: flex;
+    justify-content: space-between;
+    height: 40px;
+    align-items: center;
+}
+
+.addedtask span {
+    padding-left: 10px;
+    padding-right: 14px;
+    width: 100%;
+    font-size: 14px;
+}
+
+.addedtask:hover {
+    cursor: pointer;
+    background-color: #EEEEEE;
+    border-radius: 10px;
+    height: 40px;
+}
+
+.subtask-container::-webkit-scrollbar {
+    width: 3px;
+}
+
+.subtask-container::-webkit-scrollbar-thumb {
+    background: #344358;
+}
+
+.dropdown_box::-webkit-scrollbar {
+    width: 3px;
+}
+
+.dropdown_box::-webkit-scrollbar-thumb {
+    background: #344358;
+    height: 80px;
+}
+
+.category_dropdown_box::-webkit-scrollbar {
+    width: 3px;
+}
+
+.category_dropdown_box::-webkit-scrollbar-thumb {
+    background: #344358;
+    height: 80px;
+}
+
+.subtask-buttons {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    visibility: hidden;
+}
+
+.addedtask:hover .subtask-buttons {
+    visibility: visible;
+}
+
+.subtask-buttons button {
+    background-color: rgba(246, 247, 248, 0);
+    border: 0;
+    height: 24px;
+    width: 24px;
+    padding: 0;
+    cursor: pointer;
+}
+
+.edit-subtask {
+    background: #FFFFFF;
+    // background-image: url('../assets/img/check_black.png'), url('../assets/img/separator.png'), url('../assets/img/delete.png');
+    background-repeat: no-repeat;
+    background-position: center right 34px, center right 28px, center right 2px;
+    height: 10px;
+    width: 100%;
+}
+
+.bottom-container {
+    display: flex;
+    bottom: 10px;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+}
+
+.bottom-container-mobile {
+    display: none !important;
+}
+
+.submit-buttons {
+    display: flex;
+    gap: 20px;
+    height: 56px;
+    justify-content: flex-end;
+}
+
+.clear-button {
+    background: #F6F7F8;
+    border-radius: 10px;
+    width: 110px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 21px;
+    display: flex;
+    align-items: center;
+    // background-image: url("../assets/img/close.png");
+    background-repeat: no-repeat;
+    background-position: center right 10px;
+    padding: 16px;
+}
+
+.clear-button:hover {
+    // background-image: url("../assets/img/cancel_blue.png");
+    border: 2px solid #29ABE2;
+    color: #29ABE2;
+    transition: 100ms ease-in-out;
+    box-shadow: 0px 0px 14px 3px #00000053;
+}
+
+.create-button {
+    background: #2A3647;
+    border-radius: 10px;
+    width: 183px;
+    color: white;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 21px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+.create-button img {
+    width: 24px;
+    height: 24px;
+}
+
+.create-button:hover {
+    border: 0px;
+    background: #29ABE2;
+    transition: 100ms ease-in-out;
+    box-shadow: 0px 0px 14px 3px #00000053;
+    ;
+}
+
+.error-message {
+    display: none;
+    font-size: 14px;
+    color: #ff8190;
+    position: absolute;
+    padding-left: 5px;
+}
+
+.task-created {
+    position: fixed;
+    top: calc(100vh - 50%);
+    z-index: 1001;
+    width: 240px;
+    height: 32px;
+    right: 35%;
+    border-radius: 10px;
+    border: none;
+    padding: 16px;
+    background-color: rgb(42, 54, 71);
+    color: white;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.task-cont {
+    position: fixed;
+    transform: translateX(100vw);
+    transition: transform 300ms ease-out;
+}
+
+.slide-in-from-right {
+    /*Reference to classes "contact-overlay" and "contact-cont"*/
+    transform: translateX(0);
+}
+
+@media (max-width: 1000px) {
+    h1 {
+        font-size: 47px;
+    }
+
+    h3 {
+        font-size: 14px;
+    }
+
+    .add_task_dialog {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .main-addtask {
+        gap: 22px;
+        overflow-x: hidden;
+
+    }
+
+    input {
+        font-size: 14px;
+    }
+
+    textarea {
+        font-size: 14px;
+        height: 100px;
+    }
+
+    select {
+        font-size: 14px;
+        height: 42px;
+    }
+
+    label {
+        font-size: 14px;
+    }
+
+    .shortname {
+        width: 32px;
+        height: 32px;
+    }
+
+    .moreButton {
+        width: 32px;
+        height: 32px;
+    }
+
+    span {
+        font-size: 14px;
+    }
+
+    .datefield {
+        background-size: 20px 20px;
+    }
+
+    .prio-buttons button {
+        font-size: 14px;
+        height: 41px;
+        gap: 4px;
+    }
+
+    .prio-buttons button img {
+        width: 14px;
+    }
+
+    .required-2 {
+        padding-left: 10px;
+    }
+
+    .submit-buttons {
+        height: 40px;
+    }
+
+    .clear-button {
+        font-size: 14px;
+        background-size: 20px 20px;
+        width: 88px;
+    }
+
+    .create-button {
+        font-size: 14px;
+        background-size: 20px 20px;
+        width: 126px;
+    }
+}
+
+@media (max-height: 667px) {
+    .main-addtask {
+        height: 300px !important;
+    }
+}
+
+@media (max-width: 850px) {
+    /* body {
+        overflow-y: auto !important;
+    } */
+
+    .addtaskcontainer {
+        flex-direction: column;
+        height: 540px;
+        overflow-y: auto;
+        justify-content: flex-start;
+        padding-right: 20px;
+    }
+
+    .separator {
+        display: none;
+    }
+
+    .dropdown_container {
+        position: static;
+    }
+
+    .dropdown_box {
+        position: static;
+        padding-right: 14px;
+    }
+
+    .dropdown_selection {
+        padding-right: 28px;
+    }
+
+    .category_dropdown_box {
+        position: static;
+        padding-right: 14px;
+    }
+}
+
+@media (max-width: 750px) {
+    .addtask-content-header {
+        display: flex !important;
+        position: fixed;
+        align-items: flex-end;
+        background-color: rgb(246, 247, 248);
+        height: 90px;
+        width: 100%;
+        padding: 0;
+    }
+
+    .addtask-content {
+        margin: 96px 14px 0 22px;
+        max-width: 100%;
+        width: 100%;
+        height: 100%;
+    }
+
+    .dialog-bg {
+        display: none;
+    }
+
+    h1 {
+        margin: 0;
+        padding-left: 20px;
+    }
+
+    .task-cont {
+        flex-direction: column;
+        transform: translateY(100vh);
+        transition: transform 300ms ease-out;
+    }
+
+    .slide-in-from-right {
+        /*Reference to classes "contact-overlay" and "contact-cont"*/
+        transform: translateY(0);
+    }
+
+    .main-addtask {
+        flex-direction: column;
+        padding-bottom: 20px;
+        padding-right: 20px;
+        padding-left: 20px;
+        padding-top: 110px;
+        justify-content: flex-start;
+        height: 500px;
+        overflow-y: auto;
+
+    }
+
+    .create-button {
+        font-size: 14px;
+        background-size: 16px 16px;
+        width: 124px;
+        height: 38px;
+    }
+
+    .right-container {
+        width: 100%;
+    }
+
+    .left-container {
+        width: 100%;
+    }
+
+    .separator {
+        display: none;
+    }
+
+    textarea {
+        height: 88px;
+    }
+
+    .prio-buttons button {
+        width: 121, 33px;
+        font-size: 16px;
+        gap: 8px;
+    }
+
+    .prio-buttons button img {
+        width: 20px;
+    }
+
+    .bottom-container-mobile {
+        display: flex !important;
+        position: fixed;
+        bottom: 80px;
+        justify-content: space-around;
+        align-items: center;
+        z-index: 999;
+        background-color: rgb(246, 247, 248);
+        height: 80px;
+        width: 100%;
+        left: 0px;
+    }
+
+    .bottom-container {
+        display: none !important;
+    }
+
+    .clear-button {
+        display: none;
+    }
+}
+
+@media (max-width: 360px) {
+    .bottom-container-mobile {
+        justify-content: space-evenly;
+    }
+
+    .submit-buttons {
+        gap: 0;
+    }
+}
+
+@media screen {}

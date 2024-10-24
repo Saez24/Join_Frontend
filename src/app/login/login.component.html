@@ -1,1 +1,45 @@
-<p>login works!</p>
+<div class="main-page max-width">
+
+    <div class="loading-screen">
+        <img class="logo logo-animation" src="logo.svg" />
+    </div>
+    <div class="loading-screen-mobile">
+        <img class="logo" src="logo_white.svg" />
+    </div>
+    <div class="signup-container">
+        <span>Not a Join user?</span>
+        <a routerLink="create-account">
+            <button>Sign up</button>
+        </a>
+    </div>
+
+    <div class="login-container">
+        <h1>Log in</h1>
+        <div class="line"></div>
+        <div id="login-form">
+            <div class="input-container">
+                <input required id="email" type="text" placeholder="E-Mail" />
+                <input required id="password" type="password" placeholder="Password" />
+                <span id="error" style="display: none"> Wrong password Ups! Try again.
+                </span>
+            </div>
+
+            <div class="options">
+                <div class="remember-container">
+                    <input class="checkbox-remember" id="remember" type="checkbox" />
+                    <label for="remember">Remember me</label>
+                </div>
+            </div>
+            <div class="login-buttons">
+                <button type="button" id="login"><b>Log in</b></button>
+                <button type="button" id="guest-login">
+                    <b>Guest Log in</b>
+                </button>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <a target="_blank" href="privacy_policy.html">Privacy Policy</a>
+        <a target="_blank" href="legal_notice.html">Legal Notice</a>
+    </footer>
+</div>

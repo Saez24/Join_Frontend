@@ -1,1 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    margin: 0;
+    background-color: rgb(246, 247, 248);
+    font-family: "Inter";
+    display: flex;
+    justify-content: center;
+}
+
+.max-width {
+    max-width: 1920px;
+    height: 100vh;
+}

@@ -1,0 +1,43 @@
+<div class="sidebar">
+    <img class="logo-sidebar" src="img/icons/logo_white.svg" style="cursor: pointer;">
+    <div id="sidebarMenu">
+        <a class="sidebar-menu-row" id="summaryBtn" href="summary.html"><img class="icon" src="img/icons/summary.png"
+                alt="">Summary</a>
+        <a class="sidebar-menu-row" id="add_taskBtn" routerLink="./add-task"><img class="icon"
+                src="img/icons/addtask.png" alt="">Add Task</a>
+        <a class="sidebar-menu-row" id="boardBtn" href="board.html"><img class="icon" src="img/icons/board.png"
+                alt="">Board</a>
+        <a class="sidebar-menu-row" id="contactsBtn" href="contacts.html"><img class="icon" src="img/icons/contacts.png"
+                alt="">Contacts</a>
+    </div>
+    <div class="sidebar-bottom">
+        <a class="bottom-row" id="privacy_policyBtn" href="privacy_policy.html">
+            <div class="direction-left">Privacy Policy</div>
+        </a>
+        <a class="bottom-row" id="legal_noticeBtn" href="legal_notice.html">
+            <div class="direction-left">Legal Notice</div>
+        </a>
+    </div>
+</div>
+<div class="main">
+    <div class="header">
+        <p id="headline">Kanban Project Management Tool</p>
+        <img src="img/icons/logo.png" alt="" id="joinHeader" style="cursor: pointer;">
+        <div class="top-right">
+            <div class="bounding-box"><img class="help-icon" src="img/icons/help.png" alt="Help"></div>
+            <div class="profile-icon" id="userblock"></div>
+        </div>
+    </div>
+    <div class="submenu d-none" id="submenu">
+        <div class="submenu-link" onclick="selectLegalNotice()">
+            <p class="submenu-link-text">Legal Notice</p>
+        </div>
+        <div class="submenu-link" onclick="selectPrivacyPolicy()">
+            <p class="submenu-link-text">Privacy Policy</p>
+        </div>
+        <div onclick="handleLogout()" id="logout" class="submenu-link">
+            <p class="submenu-link-text">Logout</p>
+        </div>
+    </div>
+    <div id="content"></div>
+</div>

@@ -1,1 +1,105 @@
-<p>add-task works!</p>
+<div id="sidebarContainer">
+</div>
+<div id="addtask-content" class="addtask-content">
+    <div class="addtask-content-header">
+        <h1>Add Task</h1>
+    </div>
+    <div class="main-addtask">
+        <div class="addtaskcontainer">
+            <div class="left-container">
+                <div class="inputfields">
+                    <span class="required">Title</span>
+                    <input id="tasktitle" required type="text" placeholder="Enter a title">
+                    <div id="error-message-placeholder"><span id="error-message-title" class="error-message">Please
+                            enter
+                            a Title</span>
+                    </div>
+                </div>
+                <div class="description">
+                    <span>Description</span>
+                    <textarea class="textarea" name="Description" id="description"
+                        placeholder="Enter a Description"></textarea>
+                </div>
+                <div class="inputfields">
+                    <span>Assigned to</span>
+                    <div class="dropdown_container">
+                        <input oninput="handleAssignToInput()" onclick="selectAssignTo(), closeOnBackground(event)"
+                            id="assignedtoinput" class="dropdown-content" name="assignedto"
+                            placeholder="Select contacts to assign">
+                        <div onclick="closeOnBackground(event)" id="assignedto" class="dropdown_box">
+                        </div>
+                    </div>
+                    <div class="button-container" id="selectedAssignTo">
+                    </div>
+                </div>
+            </div>
+            <div class="separator"></div>
+            <div class="right-container">
+                <div class="inputfields">
+                    <span class="required">Due Date</span>
+                    <input onfocus="setDateRestriction()" id="duedate" name="duedate" class="datefield" required
+                        type="date" placeholder="dd/mm/yyyy">
+                    <div id="error-message-placeholder"><span id="error-message-date" class="error-message">Please
+                            enter
+                            a Date</span>
+                    </div>
+                </div>
+                <div class="prio">
+                    <span>Prio</span>
+                    <div id="priobuttons" class="prio-buttons">
+                        <button onclick="urgentButton()" id="urgent">Urgent <img src="img/icons/prio_alta.png"
+                                alt=""></button>
+                        <button onclick="mediumButton()" id="medium">Medium <img src="img/icons/prio_media.png"
+                                alt=""></button>
+                        <button onclick="lowButton()" id="low">Low <img src="img/icons/prio_baja.png" alt=""></button>
+                    </div>
+                </div>
+                <div class="inputfields">
+                    <span class="required">Category</span>
+                    <div class="dropdown_container">
+                        <input oninput="handleCategoryInput()" onclick="selectCategory(), closeOnBackground(event)"
+                            id="taskcategoryinput" class="dropdown-category-content" name="taskcategory"
+                            placeholder="Select task category">
+                        <div onclick="closeOnBackground(event)" id="taskcategory" class="category_dropdown_box">
+
+                        </div>
+                    </div>
+                    <div id="error-message-placeholder"><span id="error-message-category" class="error-message">Please
+                            select
+                            category</span>
+                    </div>
+                </div>
+                <div class="inputfields">
+                    <span>Subtasks</span>
+                    <input onclick="openAddSubtaskField(), closeOnBackground(event)" id="addsubtask" class="subtask"
+                        type="text" placeholder="Add new subtask">
+                    <input onclick="handleSubtaskClick(event), closeOnBackground(event)" onkeydown="checkEnter(event)"
+                        id="subtask" class="aktive-subtask" type="text" minlength="4" maxlength="20">
+
+                    <div class="subtask-container">
+                        <div id="addsubtasks">
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="task-created task-cont" id="task-created">
+                    <p class="#">Task successfully created</p>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-container">
+            <span class="required-2">This field is required</span>
+            <div class="submit-buttons">
+                <button onclick="clearContent()" id="clear" class="clear-button">Clear </button>
+                <button onclick="createTask()" id="create" class="create-button">Create Task <img
+                        src="img/icons/check.png" alt=""></button>
+            </div>
+        </div>
+
+        <div class="bottom-container-mobile submit-buttons">
+            <span class="required-2">This field is required</span>
+            <button onclick="createTask()" class="create-button">Create Task <img src="img/icons/check.png"
+                    alt=""></button>
+        </div>
