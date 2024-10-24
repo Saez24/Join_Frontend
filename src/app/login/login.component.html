@@ -8,7 +8,7 @@
     </div>
     <div class="signup-container">
         <span>Not a Join user?</span>
-        <a routerLink="create-account">
+        <a routerLink="/create-account">
             <button>Sign up</button>
         </a>
     </div>
@@ -26,7 +26,8 @@
 
             <div class="options">
                 <div class="remember-container">
-                    <input class="checkbox-remember" id="remember" type="checkbox" />
+                    <div class="checkbox-wrapper-19"><input type="checkbox" id="cbtest-19" /><label for="cbtest-19"
+                            class="check-box"></label></div>
                     <label for="remember">Remember me</label>
                 </div>
             </div>
@@ -39,7 +40,7 @@
         </div>
     </div>
     <footer class="footer">
-        <a target="_blank" href="privacy_policy.html">Privacy Policy</a>
-        <a target="_blank" href="legal_notice.html">Legal Notice</a>
+        <a target="_blank" routerLink="/privacy-policy">Privacy Policy</a>
+        <a target="_blank" routerLink="/legal-notice">Legal Notice</a>
     </footer>
 </div>

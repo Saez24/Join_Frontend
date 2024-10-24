@@ -1,9 +1,9 @@
-<div class="main-page">
+<div class="main-page max-width">
     <div class="signup-logo">
-        <img src="img/logo.svg" />
+        <img src="img/icons/logo.svg" />
     </div>
     <div class="signup-container">
-        <img class="arrow" src="img/arrowLeft.png" alt="Arrow">
+        <img class="arrow" src="img/icons/arrowLeft.png" alt="Arrow">
         <div class="arrow-container">
 
             <h1>Sign up</h1>
@@ -25,19 +25,20 @@
                 </div>
                 <div class="options">
                     <div class="acceptprivacy-container">
-                        <input class="checkbox-privacy" id="checkbox-privacy" type="checkbox" />
+                        <div class="checkbox-wrapper-19"><input type="checkbox" id="cbtest-19" /><label for="cbtest-19"
+                                class="check-box"></label></div>
                         <label for="checkbox-privacy">I accept the &nbsp;<a target="_blank"
-                                href="privacy_policy.html">Privacy Policy</a></label>
+                                routerLink="/privacy-policy">Privacy Policy</a></label>
                     </div>
                 </div>
                 <div class="signup-buttons">
-                    <button id="signup" class="signup-btn"><b>Sign up</b></button>
+                    <button id="signup" class="signup-btn" routerLink="/create-account"><b>Sign up</b></button>
                 </div>
             </div>
         </form>
     </div>
     <footer class="footer">
-        <a target="_blank" href="privacy_policy.html">Privacy Policy</a>
-        <a target="_blank" href="legal_notice.html">Legal Notice</a>
+        <a target="_blank" routerLink="/privacy-policy">Privacy Policy</a>
+        <a target="_blank" routerLink="/legal-notice">Legal Notice</a>
     </footer>
 </div>
