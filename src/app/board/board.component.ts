@@ -6,7 +6,9 @@ import { SidebarComponent } from '../shared/sidebar/sidebar.component';
   standalone: true,
   imports: [SidebarComponent],
   templateUrl: './board.component.html',
-  styleUrl: './board.component.scss'
+  styleUrls: ['./board.component.scss',
+    './board.component_mobile.scss'
+  ]
 })
 export class BoardComponent {
 
