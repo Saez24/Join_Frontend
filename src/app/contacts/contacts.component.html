@@ -10,7 +10,16 @@
             <img src="img/icons/contacts_add_contact.png" alt="add contact" class="add-contact-icon">
         </button>
 
-        <div id="contactForString">
+        <div *ngFor="let user of users; let i = index">
+            <div class="contact-row">
+                <div class="initials">
+                    {{ getInitials(user.name) }}
+                </div>
+                <div class="name-and-email">
+                    <div class="contact-name-row">{{ user.name }}</div>
+                    <div class="contact-email-row">{{ user.email }}</div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="main-contacts" id="mainContacts">
