@@ -1,23 +1,24 @@
 <div class="contacts-content max-width" style="overflow-y: hidden; overflow-x: hidden; display: flex; width: 100vw;">
     <div class="contacts-left" id="contactsLeft">
-        <button onclick="slideInFromRight()" class="add-contact-btn">
+        <button (click)="slideInFromRight()" class="add-contact-btn">
             <div class="button-row">
                 <div class="add-new-contact-text">Add new contact</div>
                 <img src="img/icons/contacts_add_contact.png" alt="add contact" class="add-contact-icon">
             </div>
         </button>
-        <button onclick="slideInFromRight()" class="add-contact-mobile">
+        <button (click)="slideInFromRight()" class="add-contact-mobile">
             <img src="img/icons/contacts_add_contact.png" alt="add contact" class="add-contact-icon">
         </button>
-
-        <div *ngFor="let user of users; let i = index">
-            <div class="contact-row">
-                <div class="initials">
-                    {{ getInitials(user.name) }}
-                </div>
-                <div class="name-and-email">
-                    <div class="contact-name-row">{{ user.name }}</div>
-                    <div class="contact-email-row">{{ user.email }}</div>
+        <div class="contacts-list">
+            <div *ngFor="let user of users; let i = index">
+                <div class="contact-row">
+                    <div class="initials" [ngStyle]="{ 'background-color': user.randomColor }">
+                        {{ getInitials(user.name) }}
+                    </div>
+                    <div class="name-and-email">
+                        <div class="contact-name-row">{{ user.name }}</div>
+                        <div class="contact-email-row">{{ user.email }}</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -36,12 +37,13 @@
 
 
     <!-- ADD CONTACT OVERLAY -->
-    <div class="contact-overlay d-flex j-center a-center" id="contact-overlay"
-        onclick="closeOverlayWhenGreyAreaWasClicked()">
-        <div class="contact-cont d-flex" id="contact-cont">
+    <div class="d-flex j-center a-center pos-absolute" id="contact-overlay" *ngIf="isOverlayVisible"
+        (click)="closeOverlayWhenGreyAreaWasClicked($event)">
+
+        <div class="d-flex" id="contact-cont">
             <div class="contact-left d-flex f-column j-center">
                 <div class="contact-close-white j-end a-center">
-                    <div class="contact-close-btn-white d-flex j-center a-center" onclick="slideOutToRight()">
+                    <div class="contact-close-btn-white d-flex j-center a-center" (click)="slideOutToRight()">
                         <img src="img/icons/contacts_close_white.png">
                     </div>
                 </div>
@@ -49,7 +51,6 @@
                 <span class="f-size-61">Add contact</span>
                 <span class="f-size-27">Tasks are better with a team!</span>
                 <img class="contacts-underline" src="img/icons/contacts_underline_blue.png">
-
             </div>
             <div class="contact-right d-flex j-evenly a-center">
                 <div class="contact-person d-flex j-center a-center">
@@ -57,20 +58,17 @@
                 </div>
                 <div class="contact-form-cont d-flex f-column">
                     <div class="contact-close d-flex j-end a-center">
-                        <div class="contact-close-btn d-flex j-center a-center" onclick="slideOutToRight()">
+                        <div class="contact-close-btn d-flex j-center a-center" (click)="slideOutToRight()">
                             <img src="img/icons/contacs_close.png">
                         </div>
                     </div>
-                    <form onsubmit="createContact(); return false" id="contact-form-create-contact"
+                    <form (submit)="createContact()" id="contact-form-create-contact"
                         class="contact-form d-flex f-column j-between">
-                        <input required="" id="contact-name" type="text" placeholder="Name"
-                            class="contact-input-fields">
-                        <input required="" id="contact-email" type="email" placeholder="Email"
-                            class="contact-input-fields">
-                        <input required="" id="contact-phone" type="tel" placeholder="Phone"
-                            class="contact-input-fields">
+                        <input required type="text" placeholder="Name" class="contact-input-fields">
+                        <input required type="email" placeholder="Email" class="contact-input-fields">
+                        <input required type="tel" placeholder="Phone" class="contact-input-fields">
                         <div class="contact-form-btn d-flex">
-                            <button type="button" id="contact-cancel-contact" onclick="slideOutToRight()"
+                            <button type="button" (click)="slideOutToRight()"
                                 class="contact-cancel-btn d-flex a-center j-center">Cancel
                                 <img src="img/icons/contacts_iconoir_cancel.png">
                                 <img src="img/icons/contacts_iconoir_cancel_blue.png" id="contact-cancel-blue"
@@ -83,17 +81,17 @@
                         </div>
                     </form>
                 </div>
-
             </div>
         </div>
     </div>
+
 
     <!-- CONTACT SUCCESSFULLY CREATED-->
     <div class="contact-created contact-cont" id="contact-created">
         <p class="#">Contact successfully created</p>
     </div>
 
-    <!-- EDIT CONTACT OVERLAY -->
+    <!-- EDIT CONTACT OVERLAY
     <div class="contact-overlay d-flex j-center a-center" id="edit-contact-overlay"
         onclick="closeOverlayWhenGreyAreaWasClicked()">
         <div class="contact-cont d-flex" id="edit-contact-cont">
@@ -142,7 +140,7 @@
 
             </div>
         </div>
-    </div>
+    </div> -->
 
     <!-- CONTACT SUCCESSFULLY EDITED-->
     <div class="contact-created contact-cont" id="contact-edited">

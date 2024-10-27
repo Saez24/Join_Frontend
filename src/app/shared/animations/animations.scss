@@ -1,0 +1,34 @@
+@keyframes slideInFromRight {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOutToRight {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(100%);
+    }
+}
+
+
+.slide-in-from-right {
+    animation: slideInFromRight 0.3s forwards;
+}
+
+.slide-out-to-right {
+    animation: slideOutToRight 0.3s forwards;
+}
+
+.contact-cont {
+    position: relative;
+    transform: translateX(100vw);
+    transition: transform 300ms ease-out;
+}
