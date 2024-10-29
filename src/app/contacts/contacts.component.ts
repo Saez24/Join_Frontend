@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { BackendService } from '../shared/services/backend/backend.service';
 import { Contacts } from '../shared/models/contacts.class';
 import { NgFor, NgIf, NgStyle } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 
 @Component({
   selector: 'app-contacts',
   standalone: true,
-  imports: [NgFor, NgStyle, NgIf],
+  imports: [NgFor, NgStyle, NgIf, FormsModule],
   templateUrl: './contacts.component.html',
   styleUrls: ['./contacts.component.scss',
     '../shared/animations/animations.scss'
@@ -17,7 +18,11 @@ export class ContactsComponent implements OnInit {
 
   isOverlayVisible = false;
   users: Contacts[] = [];
-
+  newContact: Contacts = {
+    name: '',
+    email: '',
+    phone: ''
+  };
 
   constructor(private api: BackendService) { }
 
@@ -70,7 +75,23 @@ export class ContactsComponent implements OnInit {
   }
 
   createContact() {
-    // Logik zum Erstellen eines Kontakts
+    // Stellen Sie sicher, dass alle erforderlichen Felder ausgefüllt sind
+    if (!this.newContact.name || !this.newContact.email) {
+      console.error('Bitte füllen Sie alle Felder aus.');
+      return;
+    }
+
+    this.api.create('names', this.newContact).subscribe({
+      next: (response) => {
+        console.log('Kontakt erfolgreich erstellt:', response);
+        this.getAllContacts(); // Aktualisieren Sie die Liste der Kontakte
+        this.newContact = { name: '', email: '', phone: '' }; // Eingabewerte zurücksetzen
+        this.slideOutToRight(); // Schließen Sie das Overlay
+      },
+      error: (error) => {
+        console.error('Fehler beim Erstellen des Kontakts:', error);
+      }
+    });
   }
 
 }

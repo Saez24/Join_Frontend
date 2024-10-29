@@ -28,4 +28,8 @@ export class BackendService {
     }
     return throwError(() => new Error(errorMsg));
   }
+
+  create(endpoint: string, data: any): Observable<any> {
+    return this.http.post<any>(`${this.api}${endpoint}/`, data);
+  }
 }

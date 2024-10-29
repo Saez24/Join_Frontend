@@ -1,8 +1,10 @@
 export class Contacts {
-    id: string;
-    email: string | null;
+    id?: string;
+    email: string;
     name: string;
-    randomColor: string;
+    randomColor?: string;
+    phone: string;
+
 
     // Liste der verfügbaren Farben
     private static readonly colors = [
@@ -16,6 +18,7 @@ export class Contacts {
         this.email = obj ? obj.email : null;
         this.name = obj ? obj.name : null;
         this.randomColor = Contacts.getRandomColor(); // Zufällige Farbe zuweisen
+        this.phone = obj ? obj.phone : null;
     }
 
     // Statische Methode zum Auswählen einer zufälligen Farbe

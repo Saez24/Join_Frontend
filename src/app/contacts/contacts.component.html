@@ -64,9 +64,12 @@
                     </div>
                     <form (submit)="createContact()" id="contact-form-create-contact"
                         class="contact-form d-flex f-column j-between">
-                        <input required type="text" placeholder="Name" class="contact-input-fields">
-                        <input required type="email" placeholder="Email" class="contact-input-fields">
-                        <input required type="tel" placeholder="Phone" class="contact-input-fields">
+                        <input required type="text" placeholder="Name" class="contact-input-fields"
+                            [(ngModel)]="newContact.name" name="name">
+                        <input required type="email" placeholder="Email" class="contact-input-fields"
+                            [(ngModel)]="newContact.email" name="email">
+                        <input required type="tel" placeholder="Phone" class="contact-input-fields"
+                            [(ngModel)]="newContact.phone" name="phone">
                         <div class="contact-form-btn d-flex">
                             <button type="button" (click)="slideOutToRight()"
                                 class="contact-cancel-btn d-flex a-center j-center">Cancel
@@ -75,11 +78,13 @@
                                     class="d-none">
                             </button>
                             <button type="submit" id="contact-create-contact"
-                                class="contact-create-btn d-flex a-center j-center">Create contact
+                                class="contact-create-btn d-flex a-center j-center">Create
+                                contact
                                 <img src="img/icons/contacts_check.png">
                             </button>
                         </div>
                     </form>
+
                 </div>
             </div>
         </div>
