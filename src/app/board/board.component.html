@@ -15,94 +15,96 @@
     </div>
 
     <div class="boardTasks">
-        <div id="todo" class="statusTasks">
-            <div class="headlineStatusTasks">
-                <h5 class="taskStatusTitle">To do</h5>
-                <div class="imageContainer">
-                    <img class="add_task_to_board" src="img/icons/add.svg" width="24" alt="Add task">
+        <div *ngFor="let task of tasks; let i = index">
+            <div id="todo" class="statusTasks">
+                <div class="headlineStatusTasks">
+                    <h5 class="taskStatusTitle">To do</h5>
+                    <div class="imageContainer">
+                        <img class="add_task_to_board" src="img/icons/add.svg" width="24" alt="Add task">
+                    </div>
+                </div>
+                <div class="tasks">
+                    <div class="arrowContainer">
+                        <img src="img/icons/arrow_drop.svg" class="arrow" alt="Arrow Drop">
+                        <img src="img/icons/arrow_drop_down.svg" class="arrow" alt="Arrow Drop Down">
+                    </div>
                 </div>
             </div>
-            <div class="tasks">
-                <div class="arrowContainer">
-                    <img src="img/icons/arrow_drop.svg" class="arrow" alt="Arrow Drop">
-                    <img src="img/icons/arrow_drop_down.svg" class="arrow" alt="Arrow Drop Down">
+
+            <div class="statusTasks">
+                <div class="headlineStatusTasks">
+                    <h5 class="taskStatusTitle">In progress</h5>
+                    <img src="img/icons/add.svg" width="24" height="24" alt="Add task">
                 </div>
-            </div>
-        </div>
 
-        <div class="statusTasks">
-            <div class="headlineStatusTasks">
-                <h5 class="taskStatusTitle">In progress</h5>
-                <img src="img/icons/add.svg" width="24" height="24" alt="Add task">
+                <div class="tasks" id="in-progress-tasks-container"></div>
             </div>
 
-            <div class="tasks" id="in-progress-tasks-container"></div>
-        </div>
-
-        <div class="statusTasks" ondrop="moveTo('awaitfeedback')">
-            <div class="headlineStatusTasks">
-                <h5 class="taskStatusTitle">Await feedback</h5>
-                <img src="img/icons/add.svg" width="24" height="24" alt="Add task">
+            <div class="statusTasks" ondrop="moveTo('awaitfeedback')">
+                <div class="headlineStatusTasks">
+                    <h5 class="taskStatusTitle">Await feedback</h5>
+                    <img src="img/icons/add.svg" width="24" height="24" alt="Add task">
+                </div>
+                <div class="tasks" id="await-feedback-tasks-container"></div>
             </div>
-            <div class="tasks" id="await-feedback-tasks-container"></div>
-        </div>
 
-        <div class="statusTasks">
-            <div class="headlineStatusTasks">
-                <h5 class="taskStatusTitle">Done</h5>
+            <div class="statusTasks">
+                <div class="headlineStatusTasks">
+                    <h5 class="taskStatusTitle">Done</h5>
+                </div>
+                <div class="tasks" id="done-tasks-container"></div>
             </div>
-            <div class="tasks" id="done-tasks-container"></div>
-        </div>
 
 
-        <div class="taskBoxBackground hidden">
-            <div class="TaskDetails slide-in-right">
-                <img class="closePopup" src="img/icons/close.png" alt="Close">
-                <button class="CategoryBox"></button>
-                <div class="taskDialogContent">
-                    <h2 class="HeadlineBox"></h2>
-                    <p id="descriptionDetails" class="descriptionDetails"></p>
-                    <div class="TaskDetailsLine">
-                        <p class="dueDate">Due date:</p>
-                        <p id="dueDate"></p>
-                    </div>
-                    <div class="priorityContainer">
-                        <p class="dueDate">Priority:</p>
-                        <p id="Priority"></p>
-                        <img class="prioImg" src="img/icons/prio_baja.png" alt="Priority">
-                    </div>
-                    <div class="TaskDetailsLine">
-                        <p class="dueDate">Assigned To:</p>
-                    </div>
-                    <div class="assignedContainer">
-                        <div class="assignedItem">
-                            <div class="assignedInitials" id="assignedInitials"></div>
-                            <p class="assignedNameDetails" id="assignedName"></p>
+            <div class="taskBoxBackground hidden">
+                <div class="TaskDetails slide-in-right">
+                    <img class="closePopup" src="img/icons/close.png" alt="Close">
+                    <button class="CategoryBox"></button>
+                    <div class="taskDialogContent">
+                        <h2 class="HeadlineBox"></h2>
+                        <p id="descriptionDetails" class="descriptionDetails"></p>
+                        <div class="TaskDetailsLine">
+                            <p class="dueDate">Due date:</p>
+                            <p id="dueDate"></p>
+                        </div>
+                        <div class="priorityContainer">
+                            <p class="dueDate">Priority:</p>
+                            <p id="Priority"></p>
+                            <img class="prioImg" src="img/icons/prio_baja.png" alt="Priority">
+                        </div>
+                        <div class="TaskDetailsLine">
+                            <p class="dueDate">Assigned To:</p>
+                        </div>
+                        <div class="assignedContainer">
+                            <div class="assignedItem">
+                                <div class="assignedInitials" id="assignedInitials"></div>
+                                <p class="assignedNameDetails" id="assignedName"></p>
+                            </div>
+                        </div>
+                        <div class="subtasksTitle">
+                            <p>Subtasks</p>
+                            <div id="subtaskItem">
+                                <p id="subtaskDialogText"></p>
+                            </div>
                         </div>
                     </div>
-                    <div class="subtasksTitle">
-                        <p>Subtasks</p>
-                        <div id="subtaskItem">
-                            <p id="subtaskDialogText"></p>
+                    <div class="editDeleteWrapper">
+                        <div class="editDeleteContainer deleteContainer">
+                            <img src="img/icons/delete.png" alt="Delete">
+                            <span>Delete</span>
+                        </div>
+                        <div>
+                            <img src="img/icons/separator.png" alt="Edit">
+                        </div>
+                        <div class="editDeleteContainer editContainer">
+                            <img src="img/icons/edit.png" alt="Edit">
+                            <span>Edit</span>
                         </div>
                     </div>
-                </div>
-                <div class="editDeleteWrapper">
-                    <div class="editDeleteContainer deleteContainer">
-                        <img src="img/icons/delete.png" alt="Delete">
-                        <span>Delete</span>
-                    </div>
-                    <div>
-                        <img src="img/icons/separator.png" alt="Edit">
-                    </div>
-                    <div class="editDeleteContainer editContainer">
-                        <img src="img/icons/edit.png" alt="Edit">
-                        <span>Edit</span>
-                    </div>
+
                 </div>
 
             </div>
-
         </div>
     </div>
     <div id="dialog" class="dialog-bg d_none">
