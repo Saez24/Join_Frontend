@@ -10,6 +10,7 @@ export class Tasks {
     due_date: string;
     created_at?: string;
     updated_at?: string;
+    categoryColor?: { background: string };
 
 
     constructor(obj?: any) {
@@ -20,10 +21,11 @@ export class Tasks {
         this.status = obj ? obj.status : null;
         this.category = obj ? obj.category : null;
         this.assigned_to = obj ? obj.assigned_to : null;
-        this.subtasks = obj ? obj.subtasks : null;
+        this.subtasks = Array.isArray(obj?.subtasks) ? obj.subtasks : []; // Sicherstellen, dass es ein Array ist
         this.due_date = obj ? obj.due_date : null;
         this.created_at = obj ? obj.created_at : null;
         this.updated_at = obj ? obj.updated_at : null;
+        this.categoryColor = obj?.categoryColor ?? { background: '' };
     }
 }
 

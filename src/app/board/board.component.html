@@ -15,46 +15,64 @@
     </div>
 
     <div class="boardTasks">
-        <div *ngFor="let task of tasks; let i = index">
-            <div id="todo" class="statusTasks">
-                <div class="headlineStatusTasks">
-                    <h5 class="taskStatusTitle">To do</h5>
-                    <div class="imageContainer">
-                        <img class="add_task_to_board" src="img/icons/add.svg" width="24" alt="Add task">
+        <!-- To Do Section -->
+        <div id="todo" class="statusTasks">
+            <div class="headlineStatusTasks">
+                <h5 class="taskStatusTitle">To do</h5>
+                <div class="imageContainer">
+                    <img class="add_task_to_board" src="img/icons/add.svg" width="24" alt="Add task">
+                </div>
+            </div>
+            <div class="tasks">
+                <div *ngFor="let tasks of api.getTasksByStatus('todo')" class="taskItem toDoBox" [id]="tasks.id || ''"
+                    draggable="true" (dragstart)="tasks.id ? startDragging(tasks.id) : null"
+                    (click)="tasks.id ? showPopup(tasks.id) : null">
+
+                    <!-- Task Header -->
+                    <div class="taskHeader">
+                        <button class="CategoryBox" [ngStyle]="getCategoryColor(tasks.category)">
+                            {{ tasks.category }}
+                        </button>
+                        <div class="arrowContainer">
+                            <img src="img/icons/arrow_drop.svg" class="arrow" alt="Arrow Drop"
+                                (click)="moveTaskUp(tasks)">
+                            <img src="img/icons/arrow_drop_down.svg" class="arrow" alt="Arrow Drop Down"
+                                (click)="moveTaskDown(tasks)">
+                        </div>
+                    </div>
+
+                    <!-- Task Details -->
+                    <p class="HeadlineBox">{{ tasks.title }}</p>
+                    <div *ngIf="tasks.description" class="descriptionSection">{{ tasks.description }}</div>
+                    <div *ngIf="tasks.subtasks && tasks.subtasks.length > 0" class="subtaskCount">
+                        {{ tasks.subtasks.length }} subtasks
+                    </div>
+
+
+
+                    <!-- Assigned Names and Priority Image -->
+                    <div class="nameSection">
+                        <div *ngFor="let name of tasks.assigned_to" class="assignedName">{{ name }}</div>
+                        <div class="prioImgContainer">
+                            <img class="prioImg" [src]="getPriorityImage(tasks.priority)" alt="Priority">
+                        </div>
                     </div>
                 </div>
-                <div class="tasks">
-                    <div class="arrowContainer">
-                        <img src="img/icons/arrow_drop.svg" class="arrow" alt="Arrow Drop">
-                        <img src="img/icons/arrow_drop_down.svg" class="arrow" alt="Arrow Drop Down">
-                    </div>
+            </div>
+        </div>
+
+        <!-- Repeat for other status sections like 'In progress', 'Await feedback', and 'Done' -->
+        <div *ngFor="let status of ['inprogress', 'awaitfeedback', 'done']" class="statusTasks">
+            <div class="headlineStatusTasks">
+                <h5 class="taskStatusTitle">{{ getStatusTitle(status) }}</h5>
+                <img src="img/icons/add.svg" width="24" height="24" alt="Add task">
+            </div>
+            <div class="tasks">
+                <div *ngFor="let tasks of api.getTasksByStatus(status)" class="taskItem" draggable="true"
+                    (dragstart)="tasks.id ? startDragging(tasks.id) : null">
+                    <!-- Task content similar to above -->
                 </div>
             </div>
-
-            <div class="statusTasks">
-                <div class="headlineStatusTasks">
-                    <h5 class="taskStatusTitle">In progress</h5>
-                    <img src="img/icons/add.svg" width="24" height="24" alt="Add task">
-                </div>
-
-                <div class="tasks" id="in-progress-tasks-container"></div>
-            </div>
-
-            <div class="statusTasks" ondrop="moveTo('awaitfeedback')">
-                <div class="headlineStatusTasks">
-                    <h5 class="taskStatusTitle">Await feedback</h5>
-                    <img src="img/icons/add.svg" width="24" height="24" alt="Add task">
-                </div>
-                <div class="tasks" id="await-feedback-tasks-container"></div>
-            </div>
-
-            <div class="statusTasks">
-                <div class="headlineStatusTasks">
-                    <h5 class="taskStatusTitle">Done</h5>
-                </div>
-                <div class="tasks" id="done-tasks-container"></div>
-            </div>
-
 
             <div class="taskBoxBackground hidden">
                 <div class="TaskDetails slide-in-right">
